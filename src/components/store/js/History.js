@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import HeaderSolar from "../../solarsystem/js/HeaderSolar";
+import PageHeader from "../../layout/js/PageHeader";
 import {
   Box,
   Container,
