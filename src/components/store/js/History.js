@@ -14,7 +14,6 @@ import { getLoginUserInfo } from "../../../util/login-utils";
 import { API_BASE_URL as BASE, SHOP, USER } from "../../../config/host-config";
 import { useNavigate } from "react-router-dom";
 import "../scss/history.scss";
-import PageHeader from "../../layout/js/PageHeader";
 
 const History = () => {
   // 로그인 인증 토큰 얻어오기
