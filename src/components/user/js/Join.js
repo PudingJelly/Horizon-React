@@ -8,6 +8,7 @@ import { API_BASE_URL as BASE, USER } from "../../../config/host-config";
 import DaumPostcode from "react-daum-postcode";
 import { getLoginUserInfo } from "../../../util/login-utils";
 import HeaderSolar from "../../solarsystem/js/HeaderSolar";
+import PageHeader from "../../layout/js/PageHeader";
 
 const Join = () => {
   const API_BASE_URL = BASE + USER;
@@ -328,7 +329,7 @@ const Join = () => {
   return (
     <>
       <div className='join-wrapper'>
-        <HeaderSolar />
+        <PageHeader />
         <Container
           component='main'
           maxwidth='xs'

@@ -26,15 +26,11 @@ const BasketItem = ({ open, item, increase, decrease, deleteProduct }) => {
   return (
     <>
       <TableRow>
-        <TableCell
-          align="center"
-          style={{ cursor: "pointer" }}
-          onClick={modalOpen}
-        >
-          {name}
+        <TableCell align='center' style={{ cursor: "pointer" }}>
+          <div onClick={modalOpen}>{name}</div>
         </TableCell>
-        <TableCell align="center">{price * count}원</TableCell>
-        <TableCell align="center" sx={{ padding: 0 }}>
+        <TableCell align='center'>{price * count}원</TableCell>
+        <TableCell align='center' sx={{ padding: 0 }}>
           {/* 수량 감소 버튼 */}
           <Box sx={{ padding: 0 }}>
             <Button sx={{ padding: 0 }} onClick={() => decreaseCount()}>
@@ -49,7 +45,7 @@ const BasketItem = ({ open, item, increase, decrease, deleteProduct }) => {
           </Box>
         </TableCell>
 
-        <TableCell align="center">
+        <TableCell align='center'>
           {/* 삭제 버튼 */}
           <Button onClick={() => deleteOnClick()}>X</Button>
         </TableCell>
