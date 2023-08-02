@@ -93,7 +93,7 @@ export default function SearchAppBar() {
         <Toolbar className='header-menubar'>
           <Link to='/'>
             <img
-              src={require("../../../final-logo.png")}
+              src={"final-logo-removebg.png"}
               alt='logo'
               style={{ width: "80px", height: "80px" }}
             />

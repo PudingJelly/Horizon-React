@@ -14,6 +14,7 @@ import { getLoginUserInfo } from "../../../util/login-utils";
 import { API_BASE_URL as BASE, SHOP, USER } from "../../../config/host-config";
 import { useNavigate } from "react-router-dom";
 import "../scss/history.scss";
+import PageHeader from "../../layout/js/PageHeader";
 
 const History = () => {
   // 로그인 인증 토큰 얻어오기
@@ -54,7 +55,7 @@ const History = () => {
   return (
     <>
       <div className='history-wrapper'>
-        <HeaderSolar />
+        <PageHeader />
         <Typography variant='h4' align='center' marginTop={5}>
           결제내역
         </Typography>
@@ -80,7 +81,7 @@ const History = () => {
                 sx={{ tableLayout: "fixed" }}
                 style={{
                   border: "1px solid white",
-                  background: "rgba(0,0,0,0.5)",
+                  background: "rgba(0,0,0,0.8)",
                 }}
               >
                 <TableCell align='center' style={{ width: "200px" }}>

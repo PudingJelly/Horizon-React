@@ -7,6 +7,7 @@ import StoreModal from "./StoreModal";
 import { API_BASE_URL as BASE, SHOP } from "../../../config/host-config";
 import HeaderSolar from "../../solarsystem/js/HeaderSolar";
 import { getLoginUserInfo } from "../../../util/login-utils";
+import PageHeader from "../../layout/js/PageHeader";
 
 const StoreMain = () => {
   const [token, setToken] = useState(getLoginUserInfo().token);
@@ -49,7 +50,7 @@ const StoreMain = () => {
   return (
     <>
       <div className='store-wrapper'>
-        <HeaderSolar />
+        <PageHeader />
         <Container component='main' maxWidth='xl' style={{ padding: "50px" }}>
           <Grid container spacing={4}>
             {list.map((product) => (

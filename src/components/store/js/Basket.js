@@ -22,6 +22,7 @@ import { getLoginUserInfo } from "../../../util/login-utils";
 import { AuthContext } from "../../../util/AuthContext";
 import PayModal from "./PayModal";
 import { BorderBottom } from "@mui/icons-material";
+import PageHeader from "../../layout/js/PageHeader";
 
 const Basket = () => {
   // 로그인 인증 토큰 얻어오기
@@ -246,7 +247,7 @@ const Basket = () => {
   return (
     <>
       <div className='basket-wrapper'>
-        <HeaderSolar />
+        <PageHeader />
 
         <Typography variant='h4' align='center' marginTop={5}>
           장바구니
