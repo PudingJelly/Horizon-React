@@ -89,20 +89,20 @@ export default function SearchAppBar() {
         flexGrow: 1,
       }}
     >
-      <div className='CSHeader'>
-        <Toolbar className='header-menubar'>
-          <Link to='/'>
+      <div className="CSHeader">
+        <Toolbar className="header-menubar">
+          <Link to="/">
             <img
               src={"/final-logo-removebg.png"}
-              alt='logo'
+              alt="logo"
               style={{ width: "80px", height: "80px" }}
             />
           </Link>
           <Typography
-            className='typography-cs'
-            variant='h5'
+            className="typography-cs"
+            variant="h5"
             noWrap
-            component='div'
+            component="div"
             sx={{
               flexGrow: 1,
               display: { xs: "none", sm: "block" },
@@ -119,18 +119,18 @@ export default function SearchAppBar() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder='Search…'
+              placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
-              color='white'
+              color="white"
             />
           </Search>
 
           {!isLoggedIn && (
-            <Link to='/login'>
+            <Link to="/login">
               <Icon
-                className='locked'
+                className="locked"
                 path={mdiLock}
-                title='LOGIN'
+                title="LOGIN"
                 size={2}
                 horizontal
                 vertical
@@ -141,22 +141,22 @@ export default function SearchAppBar() {
 
           {isLoggedIn && (
             <>
-              <Link to='/mypage'>
+              <Link to="/mypage">
                 <Icon
-                  className='profile-icon'
+                  className="profile-icon"
                   path={mdiAccount}
-                  title='MYPAGE'
+                  title="MYPAGE"
                   size={2}
                   horizontal
                   vertical
                   rotate={180}
                 />
               </Link>
-              <Link to='/basket'>
+              <Link to="/basket">
                 <Icon
-                  className='shop-basket'
+                  className="shop-basket"
                   path={mdiBasket}
-                  title='BASKET'
+                  title="BASKET"
                   size={2}
                   horizontal
                   vertical
@@ -165,9 +165,9 @@ export default function SearchAppBar() {
               </Link>
               <div onClick={logoutHandler}>
                 <Icon
-                  className='lock-open'
+                  className="lock-open"
                   path={mdiLockOpen}
-                  title='LOGOUT'
+                  title="LOGOUT"
                   size={2}
                   horizontal
                   vertical

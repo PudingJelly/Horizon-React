@@ -9,37 +9,37 @@ import Cosmos from "../assets/Cosmos.png";
 const MainScreen = () => {
   return (
     <>
-      <div className='main-wrapper'>
+      <div className="main-wrapper">
         <CSHeader />
-        <div className='MainMenu'>
-          <div className='BigBtn'>
-            <Link to='/News' style={{ width: "550px", height: "800px" }}>
-              <div className='NewsMenu'>
-                <button className='News-main-btn'>News</button>
+        <div className="MainMenu">
+          <div className="BigBtn">
+            <Link to="/News" style={{ width: "550px", height: "800px" }}>
+              <div className="NewsMenu">
+                <button className="News-main-btn">News</button>
                 <img
-                  className='News-image'
+                  className="News-image"
                   src={kindpng_5401205}
-                  alt='News Image'
+                  alt="News Image"
                 ></img>
               </div>
             </Link>
-            <Link to='/SolarSystem' style={{ width: "550px", height: "800px" }}>
-              <div className='solarMenu'>
-                <button className='Solar-main-btn'>SolarSystem</button>
+            <Link to="/SolarSystem" style={{ width: "550px", height: "800px" }}>
+              <div className="solarMenu">
+                <button className="Solar-main-btn">SolarSystem</button>
                 <img
-                  className='Cosmos'
+                  className="Cosmos"
                   src={Cosmos}
-                  alt='solarSystem Menu image'
+                  alt="solarSystem Menu image"
                 />
               </div>
             </Link>
-            <Link to='/Store' style={{ width: "550px", height: "800px" }}>
-              <div className='storeMenu'>
-                <button className='store-main-btn'>Store</button>
+            <Link to="/Store" style={{ width: "550px", height: "800px" }}>
+              <div className="storeMenu">
+                <button className="store-main-btn">Store</button>
                 <img
-                  className='storeImage'
+                  className="storeImage"
                   src={blackHole}
-                  alt='Store Menu image'
+                  alt="Store Menu image"
                 />
               </div>
             </Link>

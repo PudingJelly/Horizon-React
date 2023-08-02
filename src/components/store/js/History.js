@@ -53,21 +53,21 @@ const History = () => {
 
   return (
     <>
-      <div className='history-wrapper'>
+      <div className="history-wrapper">
         <PageHeader />
-        <Typography variant='h4' align='center' marginTop={5}>
+        <Typography variant="h4" align="center" marginTop={5}>
           결제내역
         </Typography>
 
         <Container
-          component='main'
-          className='history-main-wrapper'
+          component="main"
+          className="history-main-wrapper"
           sx={{ display: "flex" }}
           style={{ marginTop: "30px" }}
         >
           <Grid container>
             <Box
-              className='list-box'
+              className="list-box"
               sx={{
                 width: "100%",
                 margin: "auto",
@@ -80,24 +80,24 @@ const History = () => {
                 sx={{ tableLayout: "fixed" }}
                 style={{
                   border: "1px solid white",
-                  background: "rgba(0,0,0,0.8)",
+                  background: "rgba(0,0,0,0.5)",
                 }}
               >
-                <TableCell align='center' style={{ width: "200px" }}>
+                <TableCell align="center" style={{ width: "200px" }}>
                   상품명
                 </TableCell>
-                <TableCell align='center' style={{ width: "80px" }}>
+                <TableCell align="center" style={{ width: "80px" }}>
                   개수
                 </TableCell>
-                <TableCell align='center' style={{ width: "150px" }}>
+                <TableCell align="center" style={{ width: "150px" }}>
                   가격
                 </TableCell>
-                <TableCell align='center' style={{ width: "300px" }}>
+                <TableCell align="center" style={{ width: "300px" }}>
                   주소
                 </TableCell>
-                <TableCell align='center'>구입날짜</TableCell>
-                <TableCell align='center'>도착예정일</TableCell>
-                <TableCell align='center'></TableCell>
+                <TableCell align="center">구입날짜</TableCell>
+                <TableCell align="center">도착예정일</TableCell>
+                <TableCell align="center"></TableCell>
                 {list.map((product) => (
                   <HistoryItem key={product.id} item={product} />
                 ))}
