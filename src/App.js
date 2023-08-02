@@ -10,11 +10,13 @@ import Login from "./components/user/js/Login";
 import Mypage from "./components/user/js/Mypage";
 import { AuthContextProvider } from "./util/AuthContext";
 import Join from "./components/user/js/Join";
+import StartPage from "./components/layout/js/StartPage";
 
 function App() {
   return (
     <AuthContextProvider>
       <Routes>
+        <Route path='/' element={<StartPage />} />
         <Route path='/Main' element={<MainScreen />} />
         <Route path='/SolarSystem' element={<SolarSystemModel />} />
         <Route path='/News' element={<CSMain />} />
