@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../scss/startPage.scss";
 import welcome from "../img/welcome.png";
 import { Link } from "react-router-dom";
-import MainScreen from "../../main/js/MainScreen";
-import galaxy from "../img/galaxy.gif";
+import { AuthContext } from "../../../util/AuthContext";
 
 const StartPage = () => {
+  const { isLoggedIn } = useContext(AuthContext);
   return (
     <>
       <div className='start-wrapper'>
@@ -19,11 +19,23 @@ const StartPage = () => {
         </div>
         <div className='setBtn'>
           <Link to='/Main'>
-            <button className='start-btn'>Start</button>
+            <button className='start-btn page-btn'>Start</button>
           </Link>
-          <Link to='/Join'>
-            <button className='join-btn'>Join</button>
-          </Link>
+          {!isLoggedIn && (
+            <>
+              <Link to='/Join'>
+                <button className='join-btn page-btn'>Join</button>
+              </Link>
+              <Link to='/Login'>
+                <button className='login-btn page-btn'>Login</button>
+              </Link>
+            </>
+          )}
+          {isLoggedIn && (
+            <Link to='/Mypage'>
+              <button className='mypage-btn page-btn'>Mypage</button>
+            </Link>
+          )}
         </div>
       </div>
       {/* <div className='main-start-img'>

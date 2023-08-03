@@ -66,7 +66,7 @@ const PlanetContext = () => {
             <div className='planet-info mass'>질량: (10²⁰ kg)</div>
             <div className='planet-info rotation'>자전주기: (일)</div>
             <div className='planet-info revolution'>공전주기: (일)</div>
-            <div className='planet-info revolution'>~~~형 행성</div>
+            <div className='planet-info earthlike'>~~~형 행성</div>
             <div className='planet-info orbital-radius'>궤도 반지름: (AU)</div>
             <div className='planet-info main-satellite'>대표위성: </div>
           </div>

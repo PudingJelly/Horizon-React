@@ -5,7 +5,6 @@ import "../scss/Login.scss";
 import { API_BASE_URL as BASE, USER } from "../../../config/host-config";
 import { AuthContext } from "../../../util/AuthContext";
 import { useNavigate } from "react-router-dom";
-import HeaderSolar from "../../solarsystem/js/HeaderSolar";
 import PageHeader from "../../layout/js/PageHeader";
 
 const Login = () => {
