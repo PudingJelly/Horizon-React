@@ -5,7 +5,10 @@ import {
   Container,
   Grid,
   Table,
+  TableBody,
   TableCell,
+  TableHead,
+  TableRow,
   Typography,
 } from "@mui/material";
 import HistoryItem from "./HistoryItem";
@@ -53,54 +56,95 @@ const History = () => {
 
   return (
     <>
-      <div className="history-wrapper">
+      <div className='history-wrapper'>
         <PageHeader />
-        <Typography variant="h4" align="center" marginTop={5}>
+        <Typography variant='h4' align='center' marginTop={5}>
           결제내역
         </Typography>
 
         <Container
-          component="main"
-          className="history-main-wrapper"
+          component='main'
+          className='history-main-wrapper'
           sx={{ display: "flex" }}
           style={{ marginTop: "30px" }}
         >
           <Grid container>
             <Box
-              className="list-box"
+              className='list-box'
               sx={{
                 width: "100%",
                 margin: "auto",
                 display: "flex",
                 flexDirection: "column",
-                overflow: "auto",
+                maxHeight: "65vh",
+                overflowY: "auto",
+                // 스크롤바 모양 제거
+                "&::-webkit-scrollbar": {
+                  width: "0",
+                  height: "0",
+                },
+                "&::-webkit-scrollbar-thumb": {
+                  backgroundColor: "transparent",
+                },
               }}
             >
               <Table
-                sx={{ tableLayout: "fixed" }}
+                sx={{ tableLayout: "fixed", borderCollapse: "separate" }}
                 style={{
-                  border: "1px solid white",
                   background: "rgba(0,0,0,0.5)",
                 }}
               >
-                <TableCell align="center" style={{ width: "200px" }}>
-                  상품명
-                </TableCell>
-                <TableCell align="center" style={{ width: "80px" }}>
-                  개수
-                </TableCell>
-                <TableCell align="center" style={{ width: "150px" }}>
-                  가격
-                </TableCell>
-                <TableCell align="center" style={{ width: "300px" }}>
-                  주소
-                </TableCell>
-                <TableCell align="center">구입날짜</TableCell>
-                <TableCell align="center">도착예정일</TableCell>
-                <TableCell align="center"></TableCell>
-                {list.map((product) => (
-                  <HistoryItem key={product.id} item={product} />
-                ))}
+                <TableHead
+                  sx={{ zIndex: 10 }}
+                  style={{
+                    position: "sticky",
+                    top: 0,
+                    background: "rgba(0,0,0,1)",
+                  }}
+                >
+                  <TableRow>
+                    <TableCell
+                      align='center'
+                      style={{
+                        width: "200px",
+                      }}
+                    >
+                      상품명
+                    </TableCell>
+                    <TableCell
+                      align='center'
+                      style={{
+                        width: "80px",
+                      }}
+                    >
+                      개수
+                    </TableCell>
+                    <TableCell
+                      align='center'
+                      style={{
+                        width: "150px",
+                      }}
+                    >
+                      가격
+                    </TableCell>
+                    <TableCell
+                      align='center'
+                      style={{
+                        width: "300px",
+                      }}
+                    >
+                      주소
+                    </TableCell>
+                    <TableCell align='center'>구입날짜</TableCell>
+                    <TableCell align='center'>도착예정일</TableCell>
+                    <TableCell align='center'></TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {list.map((product) => (
+                    <HistoryItem key={product.id} item={product} />
+                  ))}
+                </TableBody>
               </Table>
             </Box>
           </Grid>
