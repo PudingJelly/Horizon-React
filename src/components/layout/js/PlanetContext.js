@@ -4,8 +4,8 @@ import "../scss/context.scss";
 const PlanetContext = () => {
   return (
     <>
-      <div className="planet-content-box">
-        <div className="content">
+      <div className='planet-content-box'>
+        <div className='content'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porta
           egestas elit vel ornare. Quisque nec arcu nisi. Aliquam erat volutpat.
           Cras consectetur ligula sit amet lectus porta, sit amet convallis orci
@@ -53,15 +53,22 @@ const PlanetContext = () => {
         </div>
       </div>
 
-      <div className="left-planet-content-box">
-        <div className="left-content">
-          <div className="planet-name">천체명</div>
-          <div className="planet-information">
-            <div className="diameter">지름: (km)</div>
-            <div className="surface-area">표면적: (10⁶ km²)</div>
-            <div className="mass">질량: (10²⁰ kg)</div>
-            <div className="rotation">자전주기: (일)</div>
-            <div className="revolution">공전주기: (일)</div>
+      <div className='left-planet-content-box'>
+        <div className='left-content'>
+          <div className='planet-name-box'>
+            <div className='title-k'>천체명</div>
+            <div className='title-e'>Planet Name</div>
+          </div>
+
+          <div className='planet-information'>
+            <div className='planet-info diameter'>지름: (km)</div>
+            <div className='planet-info surface-area'>표면적: (10⁶ km²)</div>
+            <div className='planet-info mass'>질량: (10²⁰ kg)</div>
+            <div className='planet-info rotation'>자전주기: (일)</div>
+            <div className='planet-info revolution'>공전주기: (일)</div>
+            <div className='planet-info revolution'>~~~형 행성</div>
+            <div className='planet-info orbital-radius'>궤도 반지름: (AU)</div>
+            <div className='planet-info main-satellite'>대표위성: </div>
           </div>
         </div>
       </div>

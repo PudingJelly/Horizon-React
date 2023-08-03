@@ -19,9 +19,11 @@ const Login = () => {
   useEffect(() => {
     if (isLoggedIn) {
       setOpen(true);
-      setTimeout(() => {
-        redirection("/");
-      }, 3000);
+      alert("이미 로그인 중입니다.");
+      redirection("/");
+      // setTimeout(() => {
+      //   redirection("/");
+      // }, 3000);
     }
   }, [isLoggedIn, redirection]);
 

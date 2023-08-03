@@ -37,25 +37,27 @@ const CSMain = () => {
   ];
 
   return (
-    <section className="News-board">
-      <PageHeader />
-      <CSMainNews />
-      <Table board hover border={1} className="News-table" width="100%">
-        <thead className="mini-table">
-          <tr className="tbl">
-            <th>Photo</th>
-            <th>Title</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {boardList.map((bo) => (
-            <CSMainTbody board={bo} />
-          ))}
-        </tbody>
-      </Table>
-      <CSNewsPage />
-    </section>
+    <div className='csmain-wrapper'>
+      <section className='News-board'>
+        <PageHeader />
+        <CSMainNews />
+        <Table board hover border={1} className='News-table' width='100%'>
+          <thead className='mini-table'>
+            <tr className='tbl'>
+              <th>Photo</th>
+              <th>Title</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {boardList.map((bo) => (
+              <CSMainTbody board={bo} />
+            ))}
+          </tbody>
+        </Table>
+        <CSNewsPage />
+      </section>
+    </div>
   );
 };
 

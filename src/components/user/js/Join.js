@@ -30,9 +30,11 @@ const Join = () => {
   //이미 로그인상태면 메인페이지로
   useEffect(() => {
     if (isLoggedIn) {
+      alert("이미 로그인 중입니다.");
+      // redirection("/");
       setTimeout(() => {
         redirection("/");
-      }, 1000);
+      }, 100);
     }
 
     if (join) {
@@ -40,7 +42,7 @@ const Join = () => {
         redirection("/login");
       }, 1000);
     }
-  }, [isLoggedIn, join]);
+  }, [isLoggedIn, join, redirection]);
 
   // 검증 메세지 상태변수 관리
   const [message, setMessage] = useState({

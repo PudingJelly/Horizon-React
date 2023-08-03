@@ -97,7 +97,6 @@ const StoreModal = ({ open, setOpen, item }) => {
       open={open}
       aria-labelledby='modal-title'
       aria-describedby='modal-description'
-      sx={{ border: "none" }}
     >
       <Box
         sx={{
@@ -106,15 +105,18 @@ const StoreModal = ({ open, setOpen, item }) => {
           left: "50%",
           transform: "translate(-50%, -50%)",
           width: 700,
-          height: 650,
-          bgcolor: "background.paper",
+          height: 750,
+          // bgcolor: "background.paper",
           boxShadow: 24,
           p: 4,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          overflow: "auto",
+          // overflow: "auto",
           borderRadius: "20px",
+          backgroundImage: `url("assets/panel/Popup005_Blue_Opaque.png")`,
+          backgroundSize: "105% 105%",
+          backgroundPosition: "center",
         }}
       >
         {/* 우측 상단에 닫기 버튼 추가 */}
@@ -122,8 +124,8 @@ const StoreModal = ({ open, setOpen, item }) => {
           variant='contained'
           sx={{
             position: "absolute",
-            top: 20,
-            right: 20,
+            top: 30,
+            right: 40,
           }}
           onClick={handleClose}
         >
@@ -133,7 +135,7 @@ const StoreModal = ({ open, setOpen, item }) => {
           variant='h6'
           id='modal-title'
           gutterBottom
-          sx={{ color: "black" }}
+          sx={{ color: "white" }}
         >
           {name}
         </Typography>
@@ -145,7 +147,7 @@ const StoreModal = ({ open, setOpen, item }) => {
         <Typography
           variant='body1'
           id='modal-description'
-          sx={{ mt: 3, color: "black" }}
+          sx={{ mt: 3, color: "white" }}
         >
           {content}
         </Typography>
@@ -159,9 +161,15 @@ const StoreModal = ({ open, setOpen, item }) => {
           }}
         >
           <Button
-            variant='outlined'
-            sx={{ mr: 2, width: 150, height: 60, fontSize: 20 }}
+            variant='contained'
+            sx={{
+              mr: 2,
+              width: 150,
+              height: 60,
+              fontSize: 20,
+            }}
             onClick={purchaseHandle}
+            style={{ color: "white" }}
           >
             바로구매
           </Button>
