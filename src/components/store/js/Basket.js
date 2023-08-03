@@ -70,7 +70,7 @@ const Basket = () => {
       setIsRendered(!isRendered);
     }
 
-    // 페이지가 렌더링 됨과 동시에 할 일 목록을 요청해서 뿌려주기.
+    // 페이지가 렌더링 됨과 동시에 장바구니 목록을 요청해서 뿌려주기.
     fetch(API_SHOP_URL + "/products", {
       method: "GET",
       headers: requestHeader,
@@ -365,6 +365,8 @@ const Basket = () => {
             setPayOpen={setPayOpen}
             handleOpen={handleOpenPayModal}
             yesPayHandle={yesPayHandle}
+            basketList={basketList}
+            totalPrice={totalPrice}
           />
         )}
       </div>
