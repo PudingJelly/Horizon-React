@@ -39,6 +39,7 @@ const StoreModal = ({ open, setOpen, item }) => {
       redirection("/login");
       return;
     }
+    alert("결제페이지로 이동합니다");
     fetch(API_SHOP_URL, {
       method: "POST",
       headers: requestHeader,
@@ -47,8 +48,8 @@ const StoreModal = ({ open, setOpen, item }) => {
       .then((response) => response.json())
       .then((data) => {})
       .catch((error) => {
-        error = "이미 장바구니에 추가하셨습니다.";
-        alert("Error: " + error);
+        // error = "이미 장바구니에 추가하셨습니다.";
+        // alert("Error: " + error);
       });
 
     redirection("/basket");
@@ -62,22 +63,26 @@ const StoreModal = ({ open, setOpen, item }) => {
       redirection("/login");
       return;
     }
-    // 장바구니 리스트만 추가 로직
-    fetch(API_SHOP_URL, {
-      method: "POST",
-      headers: requestHeader,
-      body: JSON.stringify(newProduct),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log(data);
-      })
-      .catch((error) => {
-        error = "이미 장바구니에 추가하셨습니다.";
-        alert("Error: " + error);
-      });
+    const userConfirm = window.confirm("장바구니에 추가하시겠습니까?");
 
-    setOpen(!open);
+    if (userConfirm) {
+      // 장바구니 리스트만 추가 로직
+      fetch(API_SHOP_URL, {
+        method: "POST",
+        headers: requestHeader,
+        body: JSON.stringify(newProduct),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // console.log(data);
+          alert("장바구니에 추가 되었습니다.");
+          setOpen(!open);
+        })
+        .catch((error) => {
+          error = "이미 장바구니에 추가하셨습니다.";
+          alert("Error: " + error);
+        });
+    }
   };
 
   // 닫기 버튼 클릭 실행 함수
