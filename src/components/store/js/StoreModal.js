@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { API_BASE_URL as BASE, SHOP, USER } from "../../../config/host-config";
 import { getLoginUserInfo } from "../../../util/login-utils";
 import { AuthContext } from "../../../util/AuthContext";
+import { mdiCloseThick } from "@mdi/js";
+import Icon from "@mdi/react";
 
 const StoreModal = ({ open, setOpen, item }) => {
   const redirection = useNavigate();
@@ -103,8 +105,8 @@ const StoreModal = ({ open, setOpen, item }) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: 800,
-          height: 750,
+          width: 700,
+          height: 650,
           bgcolor: "background.paper",
           boxShadow: 24,
           p: 4,
@@ -112,18 +114,20 @@ const StoreModal = ({ open, setOpen, item }) => {
           flexDirection: "column",
           alignItems: "center",
           overflow: "auto",
+          borderRadius: "20px",
         }}
       >
         {/* 우측 상단에 닫기 버튼 추가 */}
         <Button
+          variant='contained'
           sx={{
             position: "absolute",
-            top: 10,
-            right: 10,
+            top: 20,
+            right: 20,
           }}
           onClick={handleClose}
         >
-          X
+          <Icon path={mdiCloseThick} size={1} />
         </Button>
         <Typography
           variant='h6'
