@@ -1,5 +1,4 @@
 .planet-content-box {
-    /* display: none; */
     width: 25%;
     height: 70%;
     background: rgba(148, 191, 247, 0.9);
@@ -7,6 +6,7 @@
     right: 1%;
     top: 17%;
     border-radius: 10px;
+    border: 3px solid white;
     overflow-y: scroll;  
     
     .content {
@@ -16,15 +16,14 @@
   }
 
 .left-planet-content-box {
-    /* display: none; */
     width: 25%;
     height: 70%;
     background: rgba(148, 191, 247, 0.9);
     position: absolute;
     left: 1%;
     top: 17%;
-    border-radius: 10px;
-    overflow-y: scroll;  
+    border: 3px solid white;
+    border-radius: 10px;  
     
     .left-content {
       padding: 7% 0;
@@ -50,7 +49,7 @@
       height: 40px;
       border: 1px solid white;
       border-radius: 5px;
-      margin-bottom: 10%;
+      margin-bottom: 7%;
       display: flex;
       justify-content: center;
       align-items: center;
