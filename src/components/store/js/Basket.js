@@ -260,23 +260,36 @@ const Basket = () => {
             <Box
               className='list-box'
               sx={{
-                width: "90%",
-                maxWidth: "900px",
+                width: "100%",
                 margin: "auto",
                 display: "flex",
                 flexDirection: "column",
                 overflowY: "auto",
-                maxHeight: "50vh",
+                maxHeight: "55vh",
+                // 스크롤바 모양 제거
+                "&::-webkit-scrollbar": {
+                  width: "0",
+                  height: "0",
+                },
+                "&::-webkit-scrollbar-thumb": {
+                  backgroundColor: "transparent",
+                },
               }}
             >
               <Table
-                sx={{ tableLayout: "fixed" }}
+                sx={{ tableLayout: "fixed", borderCollapse: "separate" }}
                 style={{
-                  border: "1px solid white",
                   background: "rgba(0,0,0,0.5)",
                 }}
               >
-                <TableHead>
+                <TableHead
+                  sx={{ zIndex: 10 }}
+                  style={{
+                    position: "sticky",
+                    top: 0,
+                    background: "rgba(0,0,0,1)",
+                  }}
+                >
                   <TableRow sx={{ align: "center" }}>
                     <TableCell align='center' style={{ width: "20%" }}>
                       상품

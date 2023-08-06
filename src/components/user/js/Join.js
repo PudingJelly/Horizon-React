@@ -7,7 +7,7 @@ import { AuthContext } from "../../../util/AuthContext";
 import { API_BASE_URL as BASE, USER } from "../../../config/host-config";
 import DaumPostcode from "react-daum-postcode";
 import { getLoginUserInfo } from "../../../util/login-utils";
-import HeaderSolar from "../../solarsystem/js/HeaderSolar";
+import PageHeader from "../../layout/js/PageHeader";
 
 const Join = () => {
   const API_BASE_URL = BASE + USER;
@@ -25,24 +25,20 @@ const Join = () => {
   const redirection = useNavigate();
 
   const { isLoggedIn } = useContext(AuthContext);
-  const [join, setJoin] = useState(false);
+
+  const requestHeader = {
+    "content-type": "application/json",
+    Authorization: "Bearer " + token,
+  };
 
   //이미 로그인상태면 메인페이지로
   useEffect(() => {
     if (isLoggedIn) {
-      alert("이미 로그인 중입니다.");
-      // redirection("/");
       setTimeout(() => {
-        redirection("/");
-      }, 100);
-    }
-
-    if (join) {
-      setTimeout(() => {
-        redirection("/login");
+        redirection("/Main");
       }, 1000);
     }
-  }, [isLoggedIn, join, redirection]);
+  }, [isLoggedIn]);
 
   // 검증 메세지 상태변수 관리
   const [message, setMessage] = useState({
@@ -249,14 +245,18 @@ const Join = () => {
   //상세주소 입력 변수
   const addrDetailHandler = (e) => {
     const inputValue = e.target.value;
-    let flag = false;
-    if (inputValue) {
+    let msg,
+      flag = false;
+    if (!inputValue) {
+      msg = "상세주소는 필수입니다.";
+    } else {
       flag = true;
     }
     setUser({
       ...user,
       address2: inputValue,
     });
+    setMessage({ ...message, address2: msg });
     setCorrect({ ...correct, address2: flag });
   };
 
@@ -304,23 +304,15 @@ const Join = () => {
 
   // 회원가입 처리 서버 요청
   const fetchSignUpPost = () => {
-    // FormData에 바로 데이터를 넣기
-    const userFormData = new FormData();
-    userFormData.append("email", user.email);
-    userFormData.append("password", user.password);
-    userFormData.append("userName", user.userName);
-    userFormData.append("postCode", user.postCode);
-    userFormData.append("address1", user.address1);
-    userFormData.append("address2", user.address2);
-
     fetch(API_BASE_URL, {
       method: "POST",
-      body: userFormData,
+      headers: requestHeader,
+      body: JSON.stringify(user),
     }).then((res) => {
       console.log(res.status);
       if (res.status === 200) {
-        alert("회원가입에 성공했습니다!");
-        setJoin(true);
+        alert("회원가입을 완료하셨습니다.");
+        redirection("/login");
       } else {
         alert("서버와의 통신이 원활하지 않습니다.");
       }
@@ -330,7 +322,7 @@ const Join = () => {
   return (
     <>
       <div className='join-wrapper'>
-        <HeaderSolar />
+        <PageHeader />
         <Container
           component='main'
           maxwidth='xs'
@@ -346,7 +338,7 @@ const Join = () => {
 
               <Grid item xs={12}>
                 <TextField
-                  autoComplete='fname'
+                  autoComplete='off'
                   name='username'
                   variant='outlined'
                   required
@@ -358,8 +350,15 @@ const Join = () => {
                   InputLabelProps={{
                     style: { color: "white" },
                   }}
-                  InputProps={{ style: { color: "white" } }}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
                 <span
                   style={
@@ -377,13 +376,20 @@ const Join = () => {
                   id='email'
                   label='이메일 주소'
                   name='email'
-                  autoComplete='email'
+                  autoComplete='off'
                   onChange={emailHandler}
                   InputLabelProps={{
                     style: { color: "white" },
                   }}
-                  InputProps={{ style: { color: "white" } }}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
                 <span
                   style={correct.email ? { color: "green" } : { color: "red" }}
@@ -400,13 +406,20 @@ const Join = () => {
                   label='패스워드'
                   type='password'
                   id='password'
-                  autoComplete='current-password'
+                  autoComplete='off'
                   onChange={passwordHandler}
                   InputLabelProps={{
                     style: { color: "white" },
                   }}
-                  InputProps={{ style: { color: "white" } }}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
                 <span
                   style={
@@ -425,13 +438,20 @@ const Join = () => {
                   label='패스워드 확인'
                   type='password'
                   id='password-check'
-                  autoComplete='check-password'
+                  autoComplete='off'
                   onChange={pwChkHandler}
                   InputLabelProps={{
                     style: { color: "white" },
                   }}
-                  InputProps={{ style: { color: "white" } }}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
                 <span
                   id='check-span'
@@ -458,8 +478,20 @@ const Join = () => {
                   InputLabelProps={{
                     style: { color: "white" },
                   }}
-                  InputProps={{ style: { color: "white" } }}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                    inputProps: {
+                      style: {
+                        "-webkit-text-fill-color": "white", // placeholder 텍스트 색상 변경
+                      },
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -490,8 +522,20 @@ const Join = () => {
                   InputLabelProps={{
                     style: { color: "white" },
                   }}
-                  InputProps={{ style: { color: "white" } }}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                    inputProps: {
+                      style: {
+                        "-webkit-text-fill-color": "white", // placeholder 텍스트 색상 변경
+                      },
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
               </Grid>
 
@@ -501,15 +545,30 @@ const Join = () => {
                   variant='outlined'
                   fullWidth
                   required
+                  autoComplete='off'
                   id='detail-address'
                   label='상세주소'
                   onChange={addrDetailHandler}
                   InputLabelProps={{
                     style: { color: "white" },
                   }}
-                  InputProps={{ style: { color: "white" } }}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
+                <span
+                  style={
+                    correct.address2 ? { color: "green" } : { color: "red" }
+                  }
+                >
+                  {message.address2}
+                </span>
               </Grid>
               <Grid item>
                 <Link to='/login' variant='body2' style={{ color: "white" }}>
@@ -519,7 +578,6 @@ const Join = () => {
               <Grid container justifyContent='flex-end'>
                 <Grid item xs={4}>
                   <Button
-                    type='submit'
                     fullWidth
                     variant='contained'
                     style={{ background: "#3159d1", fontSize: "20px" }}
