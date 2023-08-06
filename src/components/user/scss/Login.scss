@@ -4,11 +4,6 @@
   background: url("../../layout/img/background1.jpg");  
 }
 
-.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+.outlined {
   border-color: white !important;
 }
-
-.MuiOutlinedInput-root[data-shrink='true'] .MuiOutlinedInput-notchedOutline {
-  border-color: white !important;
-}
-
