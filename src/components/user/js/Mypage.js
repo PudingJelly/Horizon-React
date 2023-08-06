@@ -166,7 +166,7 @@ const Mypage = () => {
       <div className='mypage-wrapper'>
         <PageHeader />
         <Container
-          className='mypage'
+          className='mypage no-mui-disabled'
           component='main'
           maxWidth='xs'
           style={{ margin: "80px auto" }}
@@ -211,20 +211,31 @@ const Mypage = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <InputLabel>이메일(계정)</InputLabel>
+                <InputLabel className='input-label'>이메일(계정)</InputLabel>
                 <TextField
                   variant='outlined'
-                  disabled
                   fullWidth
+                  disabled
                   id='email'
                   name='email'
                   value={user.email}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputLabelProps={{
+                    style: { color: "white" },
+                  }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
               </Grid>
 
               <Grid item xs={12}>
-                <InputLabel>이름</InputLabel>
+                <InputLabel className='input-label'>이름</InputLabel>
                 <TextField
                   name='name'
                   variant='outlined'
@@ -232,12 +243,23 @@ const Mypage = () => {
                   fullWidth
                   id='name'
                   value={user.userName}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputLabelProps={{
+                    style: { color: "white" },
+                  }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
               </Grid>
 
               <Grid item xs={12} sm={8}>
-                <InputLabel>우편번호</InputLabel>
+                <InputLabel className='input-label'>우편번호</InputLabel>
                 <TextField
                   variant='outlined'
                   fullWidth
@@ -245,8 +267,18 @@ const Mypage = () => {
                   id='sample4_postcode'
                   name='postCode'
                   value={user.postCode}
-                  InputProps={{ style: { color: "white" } }}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputLabelProps={{
+                    style: { color: "white" },
+                  }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -266,7 +298,7 @@ const Mypage = () => {
                 </Button>
               </Grid>
               <Grid item xs={12}>
-                <InputLabel>도로명주소</InputLabel>
+                <InputLabel className='input-label'>도로명주소</InputLabel>
                 <TextField
                   variant='outlined'
                   fullWidth
@@ -274,23 +306,44 @@ const Mypage = () => {
                   id='sample4_roadAddress'
                   name='roadAddress'
                   value={user.address1}
-                  InputProps={{ style: { color: "white" } }}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputLabelProps={{
+                    style: { color: "white" },
+                  }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
               </Grid>
 
               <Grid item xs={12}>
-                <InputLabel>상세주소</InputLabel>
+                <InputLabel className='input-label'>상세주소</InputLabel>
                 <TextField
                   type='text'
                   variant='outlined'
                   fullWidth
+                  autoComplete='off'
                   id='detail-address'
                   name='detail-address'
                   value={user.address2}
                   onChange={addrDetailHandler}
-                  InputProps={{ style: { color: "white" } }}
-                  style={{ background: "rgba(0,0,0,0.5)" }}
+                  InputLabelProps={{
+                    style: { color: "white" },
+                  }}
+                  InputProps={{
+                    style: { color: "white" },
+                    classes: {
+                      notchedOutline: "outlined", // 테두리 스타일을 변경할 클래스 이름
+                    },
+                  }}
+                  style={{
+                    background: "rgba(0,0,0,0.5)",
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
